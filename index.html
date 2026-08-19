@@ -3,13 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>One Question ❤️</title>
+  <title>Good Morning ❤️</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       height: 100vh;
@@ -17,69 +13,30 @@
       justify-content: center;
       align-items: center;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      overflow: hidden;
-    }
-
-    .container {
-      background: rgba(255,255,255,0.9);
-      padding: 40px 25px;
-      border-radius: 25px;
+      background: linear-gradient(135deg, #ffb6c1, #ffd6a5);
       text-align: center;
-      width: 90%;
-      max-width: 450px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-
-    .heart {
-      font-size: 70px;
-      animation: heartbeat 1.2s infinite;
-    }
-
-    h1 {
-      color: #ff4d6d;
-      font-size: 32px;
-      margin: 15px 0;
-    }
-
-    p {
-      color: #555;
-      font-size: 18px;
-      line-height: 1.5;
-    }
-
-    button {
-      border: none;
-      padding: 13px 28px;
-      border-radius: 30px;
-      font-size: 17px;
-      cursor: pointer;
-      margin: 10px;
-      transition: 0.3s;
-    }
-
-    #yes {
-      background: #ff4d6d;
       color: white;
     }
 
-    #yes:hover {
-      transform: scale(1.1);
-      background: #ff1744;
+    .message {
+      padding: 30px;
+      max-width: 600px;
     }
 
-    #no {
-      background: #ddd;
-      color: #333;
-      position: relative;
+    h1 {
+      font-size: 45px;
+      margin-bottom: 20px;
     }
 
-    #message {
-      display: none;
-      margin-top: 20px;
-      font-size: 22px;
-      color: #ff4d6d;
-      font-weight: bold;
+    #text {
+      font-size: 20px;
+      line-height: 1.7;
+      min-height: 150px;
+    }
+
+    .heart {
+      font-size: 45px;
+      animation: heartbeat 1.2s infinite;
     }
 
     @keyframes heartbeat {
@@ -90,87 +47,48 @@
         transform: scale(1.2);
       }
     }
-
-    .floating-heart {
-      position: absolute;
-      bottom: -30px;
-      font-size: 25px;
-      animation: float 5s linear infinite;
-      opacity: 0.7;
-    }
-
-    @keyframes float {
-      from {
-        transform: translateY(0);
-        opacity: 0;
-      }
-      20% {
-        opacity: 0.8;
-      }
-      to {
-        transform: translateY(-110vh);
-        opacity: 0;
-      }
-    }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <div class="message">
     <div class="heart">❤️</div>
 
-    <h1>Can you be my girlfriend?</h1>
+    <h1>Good Morning, My Love ☀️</h1>
 
-    <p>
-      I don't know what the future holds,
-      but I know I'd love to spend it with you. ❤️
-    </p>
-
-    <button id="yes" onclick="sayYes()">Yes ❤️</button>
-    <button id="no" onmouseover="moveNo()">No 😭</button>
-
-    <div id="message">
-      YAYYY! 🥹❤️<br>
-      You just made me the happiest person ever! 💕
-    </div>
+    <p id="text"></p>
   </div>
 
   <script>
-    function sayYes() {
-      document.getElementById("message").style.display = "block";
+    const message = `Good morning, my love. ❤️
 
-      for (let i = 0; i < 30; i++) {
-        createHeart();
+I hope you slept well and woke up feeling happy today.
+
+I just want you to know that you're one of the first things I think about when I wake up.
+
+No matter how far apart we are, I hope you always remember that someone here is thinking about you and loving you.
+
+Have a beautiful day, my love. 🌷
+
+Take care always. I love you. ❤️`;
+
+    let i = 0;
+    const speed = 40;
+
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("text").innerHTML +=
+          message.charAt(i) === "\n"
+            ? "<br>"
+            : message.charAt(i);
+
+        i++;
+        setTimeout(typeWriter, speed);
       }
     }
 
-    function moveNo() {
-      const button = document.getElementById("no");
-
-      const x = Math.random() * 200 - 100;
-      const y = Math.random() * 150 - 75;
-
-      button.style.transform = `translate(${x}px, ${y}px)`;
-    }
-
-    function createHeart() {
-      const heart = document.createElement("div");
-
-      heart.className = "floating-heart";
-      heart.innerHTML = "❤️";
-
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
-    }
-
-    setInterval(createHeart, 800);
+    typeWriter();
   </script>
 
 </body>
