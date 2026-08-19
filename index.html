@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>A Bouquet For You 💐</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,17 +18,24 @@ body {
     min-height: 100vh;
     overflow: hidden;
     font-family: Arial, sans-serif;
-    background: linear-gradient(180deg, #ffe1ed, #fff7fa);
+    background: linear-gradient(
+        180deg,
+        #ffe0ec 0%,
+        #fff5f9 100%
+    );
 }
 
 .container {
     width: 100%;
     max-width: 430px;
-    min-height: 100vh;
+    height: 100vh;
     margin: auto;
     text-align: center;
-    padding: 70px 15px 20px;
+    padding-top: 70px;
+    position: relative;
 }
+
+/* TITLE */
 
 h1 {
     color: #b83268;
@@ -37,105 +46,51 @@ h1 {
 .subtitle {
     color: #92586f;
     font-size: 18px;
-    margin-bottom: 15px;
 }
 
-/* BOUQUET */
+/* =========================
+   BOUQUET AREA
+========================= */
 
 .bouquet {
     position: relative;
     width: 350px;
-    height: 550px;
+    height: 520px;
     max-width: 100%;
-    margin: auto;
+    margin: 15px auto 0;
 }
 
-/* FLOWERS */
-
-.flowers {
-    position: absolute;
-    width: 330px;
-    height: 330px;
-    left: 50%;
-    top: 10px;
-    transform: translateX(-50%);
-    transition: 1s ease;
-    z-index: 5;
-}
-
-.flower {
-    position: absolute;
-    width: 90px;
-    height: 120px;
-    transition: 1s cubic-bezier(.2,.8,.2,1);
-}
-
-.flower svg {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-}
-
-/* positions */
-
-.f1 {
-    left: 5px;
-    top: 100px;
-    transform: rotate(-15deg);
-}
-
-.f2 {
-    left: 70px;
-    top: 25px;
-}
-
-.f3 {
-    right: 5px;
-    top: 100px;
-    transform: rotate(15deg);
-}
-
-.f4 {
-    left: 50px;
-    top: 150px;
-    transform: rotate(-8deg);
-}
-
-.f5 {
-    right: 45px;
-    top: 155px;
-    transform: rotate(8deg);
-}
-
-/* stems */
+/* =========================
+   STEMS
+========================= */
 
 .stems {
     position: absolute;
     width: 330px;
-    height: 300px;
+    height: 310px;
     left: 50%;
-    top: 150px;
+    top: 130px;
     transform: translateX(-50%);
-    z-index: 1;
+    z-index: 2;
 }
 
 .stem {
     position: absolute;
     width: 7px;
-    height: 230px;
-    background: #4f9d5d;
-    border-radius: 10px;
+    height: 245px;
     left: 50%;
     bottom: 0;
-    transform-origin: bottom;
+    background: #4d9b5c;
+    border-radius: 20px;
+    transform-origin: bottom center;
 }
 
 .stem:nth-child(1) {
-    transform: rotate(-25deg);
+    transform: rotate(-30deg);
 }
 
 .stem:nth-child(2) {
-    transform: rotate(-12deg);
+    transform: rotate(-15deg);
 }
 
 .stem:nth-child(3) {
@@ -143,209 +98,452 @@ h1 {
 }
 
 .stem:nth-child(4) {
-    transform: rotate(13deg);
+    transform: rotate(15deg);
 }
 
 .stem:nth-child(5) {
-    transform: rotate(25deg);
+    transform: rotate(30deg);
 }
 
-/* leaves */
+/* =========================
+   LEAVES
+========================= */
 
 .leaves {
     position: absolute;
     width: 330px;
-    height: 250px;
+    height: 300px;
     left: 50%;
-    top: 210px;
+    top: 170px;
     transform: translateX(-50%);
-    z-index: 3;
+    z-index: 4;
 }
 
 .leaf {
     position: absolute;
-    width: 85px;
+    width: 80px;
     height: 38px;
-    background: #5da968;
+    background: #62aa6c;
     border-radius: 100% 0 100% 0;
 }
 
 .leaf1 {
-    left: 25px;
-    top: 80px;
+    left: 20px;
+    top: 120px;
     transform: rotate(20deg);
 }
 
 .leaf2 {
-    right: 15px;
-    top: 70px;
+    right: 10px;
+    top: 105px;
     transform: rotate(155deg);
 }
 
 .leaf3 {
-    left: 125px;
-    top: 105px;
-    transform: rotate(-12deg);
+    left: 105px;
+    top: 170px;
+    transform: rotate(-20deg);
 }
 
-/* WRAPPER */
+.leaf4 {
+    right: 65px;
+    top: 170px;
+    transform: rotate(160deg);
+}
+
+/* =========================
+   FLOWERS
+========================= */
+
+.flowers {
+    position: absolute;
+    width: 330px;
+    height: 300px;
+    left: 50%;
+    top: 25px;
+    transform: translateX(-50%);
+    z-index: 7;
+}
+
+.flower {
+    position: absolute;
+    width: 86px;
+    height: 86px;
+}
+
+/* positions */
+
+.f1 {
+    left: 5px;
+    top: 110px;
+}
+
+.f2 {
+    left: 75px;
+    top: 35px;
+}
+
+.f3 {
+    right: 5px;
+    top: 110px;
+}
+
+.f4 {
+    left: 50px;
+    top: 170px;
+}
+
+.f5 {
+    right: 45px;
+    top: 170px;
+}
+
+/* =========================
+   PETALS
+========================= */
+
+.petal {
+    position: absolute;
+    width: 43px;
+    height: 52px;
+
+    /* IMPORTANT:
+       bawat petal ay hiwalay */
+    background: #ff6698;
+
+    border-radius:
+        50% 50%
+        45% 45%
+        50% 50%;
+
+    left: 21px;
+    top: 17px;
+
+    transform-origin: 50% 100%;
+}
+
+/* 5 COMPLETE PETALS */
+
+.petal1 {
+    transform: rotate(0deg) translateY(-25px);
+}
+
+.petal2 {
+    transform: rotate(72deg) translateY(-25px);
+}
+
+.petal3 {
+    transform: rotate(144deg) translateY(-25px);
+}
+
+.petal4 {
+    transform: rotate(216deg) translateY(-25px);
+}
+
+.petal5 {
+    transform: rotate(288deg) translateY(-25px);
+}
+
+/* FLOWER CENTER */
+
+.flower-center {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+
+    left: 29px;
+    top: 29px;
+
+    border-radius: 50%;
+
+    background: #ffd052;
+
+    border: 3px solid #f4bd3f;
+
+    z-index: 10;
+}
+
+/* =========================
+   WRAPPING PAPER
+========================= */
 
 .wrapper {
     position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
+
     width: 255px;
     height: 165px;
-    background: linear-gradient(135deg, #df7fa2, #c75d86);
-    clip-path: polygon(5% 0,95% 0,78% 100%,22% 100%);
-    z-index: 10;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            135deg,
+            #df7fa2,
+            #c95d86
+        );
+
+    clip-path:
+        polygon(
+            5% 0,
+            95% 0,
+            78% 100%,
+            22% 100%
+        );
+
+    z-index: 12;
+
     transition: 1s;
 }
 
+/* yellow horizontal ribbon */
+
 .wrapper::before {
     content: "";
+
     position: absolute;
+
     left: 0;
     top: 65px;
+
     width: 100%;
     height: 25px;
+
     background: #f5d263;
 }
+
+/* yellow vertical ribbon */
 
 .wrapper::after {
     content: "";
+
     position: absolute;
+
     left: 115px;
     top: 0;
+
     width: 25px;
     height: 165px;
+
     background: #f5d263;
 }
 
-/* ribbon */
+/* =========================
+   BOW
+========================= */
 
 .bow {
     position: absolute;
+
     width: 90px;
     height: 55px;
+
     left: 50%;
     bottom: 135px;
+
     transform: translateX(-50%);
-    z-index: 15;
+
+    z-index: 20;
+
     transition: 1s;
 }
 
 .bow-left,
 .bow-right {
     position: absolute;
+
     width: 48px;
     height: 38px;
-    background: #f5d263;
+
     top: 5px;
+
+    background: #f5d263;
 }
 
 .bow-left {
     left: 0;
-    border-radius: 50% 10% 50% 50%;
+
+    border-radius:
+        50% 10%
+        50% 50%;
+
     transform: rotate(15deg);
 }
 
 .bow-right {
     right: 0;
-    border-radius: 10% 50% 50% 50%;
+
+    border-radius:
+        10% 50%
+        50% 50%;
+
     transform: rotate(-15deg);
 }
 
 .bow-center {
     position: absolute;
+
     width: 27px;
     height: 27px;
-    background: #d8ae3c;
-    border-radius: 50%;
+
     left: 32px;
     top: 10px;
-    z-index: 3;
+
+    border-radius: 50%;
+
+    background: #d9ad39;
+
+    z-index: 5;
 }
 
-/* MESSAGE */
+/* =========================
+   MESSAGE
+========================= */
 
 .message {
     position: absolute;
+
     width: 315px;
     max-width: 90vw;
+
     left: 50%;
+
     bottom: -40px;
-    transform: translateX(-50%) scale(0);
+
+    transform:
+        translateX(-50%)
+        translateY(30px)
+        scale(.8);
+
     opacity: 0;
+
     background: white;
+
     border-radius: 25px;
+
     padding: 24px;
-    box-shadow: 0 15px 40px rgba(160,70,110,.2);
-    transition: 1s;
+
+    box-shadow:
+        0 15px 40px
+        rgba(160,70,110,.20);
+
+    transition:
+        .8s ease;
+
     z-index: 30;
 }
 
 .message h2 {
     color: #c43d72;
+
     font-size: 27px;
+
     margin-bottom: 15px;
 }
 
 .message p {
     color: #765666;
+
     font-size: 16px;
+
     line-height: 1.6;
 }
 
-/* OPEN */
+/* =========================
+   OPEN ANIMATION
+========================= */
 
 .open .wrapper {
-    transform: translateX(-50%) translateY(70px);
+    transform:
+        translateX(-50%)
+        translateY(70px);
 }
 
 .open .bow {
-    transform: translateX(-50%) translateY(70px);
+    transform:
+        translateX(-50%)
+        translateY(70px);
 }
 
 .open .message {
-    transform: translateX(-50%) scale(1);
+    transform:
+        translateX(-50%)
+        translateY(0)
+        scale(1);
+
     opacity: 1;
 }
 
-/* BUTTON */
+/* =========================
+   BUTTON
+========================= */
 
 button {
     position: absolute;
-    bottom: 5px;
+
     left: 50%;
+    bottom: 12px;
+
     transform: translateX(-50%);
+
     border: none;
-    padding: 14px 28px;
+
+    padding:
+        14px 28px;
+
     border-radius: 30px;
+
     background: #c83f72;
+
     color: white;
+
     font-size: 16px;
+
     cursor: pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(200,63,114,.25);
+
     z-index: 50;
 }
 
-/* FALLING FLOWERS */
+button:active {
+    transform:
+        translateX(-50%)
+        scale(.95);
+}
+
+/* =========================
+   FALLING PETALS
+========================= */
 
 .falling {
     position: fixed;
+
     top: -30px;
+
     pointer-events: none;
-    animation: fall 5s linear forwards;
+
     z-index: 100;
+
+    animation:
+        fall 5s linear forwards;
 }
 
 @keyframes fall {
+
     to {
-        transform: translateY(110vh) rotate(500deg);
+        transform:
+            translateY(110vh)
+            rotate(600deg);
+
         opacity: 0;
     }
 }
+
 </style>
 </head>
 
@@ -353,171 +551,175 @@ button {
 
 <div class="container">
 
-<h1>A little bouquet for you 💐</h1>
-<p class="subtitle">Tap the bouquet 🌷</p>
+    <h1>
+        A little bouquet for you 💐
+    </h1>
 
-<div class="bouquet" id="bouquet">
-
-<!-- STEMS -->
-<div class="stems">
-    <div class="stem"></div>
-    <div class="stem"></div>
-    <div class="stem"></div>
-    <div class="stem"></div>
-    <div class="stem"></div>
-</div>
-
-<!-- LEAVES -->
-<div class="leaves">
-    <div class="leaf leaf1"></div>
-    <div class="leaf leaf2"></div>
-    <div class="leaf leaf3"></div>
-</div>
-
-<!-- REAL SVG FLOWERS -->
-<div class="flowers">
-
-<!-- Flower 1 -->
-<div class="flower f1">
-<svg viewBox="0 0 100 130">
-    <path d="M50 120 C48 90 48 65 50 45"
-          stroke="#4f9d5d"
-          stroke-width="6"
-          fill="none"/>
-
-    <path d="M50 55
-             C25 45 8 55 12 78
-             C15 95 32 101 50 82
-             C68 101 85 95 88 78
-             C92 55 75 45 50 55Z"
-          fill="#ff6f9f"/>
-
-    <path d="M50 55
-             C35 38 39 18 50 10
-             C61 18 65 38 50 55Z"
-          fill="#ff5f91"/>
-</svg>
-</div>
-
-<!-- Flower 2 -->
-<div class="flower f2">
-<svg viewBox="0 0 100 130">
-    <path d="M50 120 C50 85 50 60 50 40"
-          stroke="#4f9d5d"
-          stroke-width="6"
-          fill="none"/>
-
-    <path d="M50 55
-             C28 42 12 50 15 72
-             C18 91 34 96 50 80
-             C66 96 82 91 85 72
-             C88 50 72 42 50 55Z"
-          fill="#ff719f"/>
-
-    <path d="M50 55
-             C38 38 40 16 50 7
-             C60 16 62 38 50 55Z"
-          fill="#ff5d91"/>
-</svg>
-</div>
-
-<!-- Flower 3 -->
-<div class="flower f3">
-<svg viewBox="0 0 100 130">
-    <path d="M50 120 C52 90 52 65 50 43"
-          stroke="#4f9d5d"
-          stroke-width="6"
-          fill="none"/>
-
-    <path d="M50 55
-             C25 45 10 55 14 78
-             C17 96 34 100 50 82
-             C66 100 83 96 86 78
-             C90 55 75 45 50 55Z"
-          fill="#ff6b9d"/>
-
-    <path d="M50 55
-             C35 38 39 18 50 10
-             C61 18 65 38 50 55Z"
-          fill="#ff5a8f"/>
-</svg>
-</div>
-
-<!-- Flower 4 -->
-<div class="flower f4">
-<svg viewBox="0 0 100 130">
-    <path d="M50 120 C50 85 50 60 50 40"
-          stroke="#4f9d5d"
-          stroke-width="6"
-          fill="none"/>
-
-    <path d="M50 55
-             C27 44 13 53 16 74
-             C19 91 35 96 50 81
-             C65 96 81 91 84 74
-             C87 53 73 44 50 55Z"
-          fill="#f95f91"/>
-
-    <path d="M50 55
-             C38 38 40 17 50 8
-             C60 17 62 38 50 55Z"
-          fill="#ff719f"/>
-</svg>
-</div>
-
-<!-- Flower 5 -->
-<div class="flower f5">
-<svg viewBox="0 0 100 130">
-    <path d="M50 120 C50 85 50 60 50 40"
-          stroke="#4f9d5d"
-          stroke-width="6"
-          fill="none"/>
-
-    <path d="M50 55
-             C27 44 13 53 16 74
-             C19 91 35 96 50 81
-             C65 96 81 91 84 74
-             C87 53 73 44 50 55Z"
-          fill="#ff6a9b"/>
-
-    <path d="M50 55
-             C38 38 40 17 50 8
-             C60 17 62 38 50 55Z"
-          fill="#ff5b91"/>
-</svg>
-</div>
-
-</div>
-
-<!-- WRAPPER -->
-<div class="wrapper"></div>
-
-<!-- BOW -->
-<div class="bow">
-    <div class="bow-left"></div>
-    <div class="bow-right"></div>
-    <div class="bow-center"></div>
-</div>
-
-<!-- MESSAGE -->
-<div class="message">
-    <h2>For You 💗</h2>
-
-    <p>
-        I may not be able to give you a real
-        bouquet right now, so I made this
-        little one just for you. 🌷
-        <br><br>
-        Every flower here carries a little bit
-        of my love. ❤️
+    <p class="subtitle">
+        Tap the bouquet 🌷
     </p>
-</div>
+
+
+    <div
+        class="bouquet"
+        id="bouquet"
+    >
+
+        <!-- STEMS -->
+
+        <div class="stems">
+
+            <div class="stem"></div>
+            <div class="stem"></div>
+            <div class="stem"></div>
+            <div class="stem"></div>
+            <div class="stem"></div>
+
+        </div>
+
+
+        <!-- LEAVES -->
+
+        <div class="leaves">
+
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+            <div class="leaf leaf3"></div>
+            <div class="leaf leaf4"></div>
+
+        </div>
+
+
+        <!-- FLOWERS -->
+
+        <div class="flowers">
+
+
+            <!-- FLOWER 1 -->
+
+            <div class="flower f1">
+
+                <div class="petal petal1"></div>
+                <div class="petal petal2"></div>
+                <div class="petal petal3"></div>
+                <div class="petal petal4"></div>
+                <div class="petal petal5"></div>
+
+                <div class="flower-center"></div>
+
+            </div>
+
+
+            <!-- FLOWER 2 -->
+
+            <div class="flower f2">
+
+                <div class="petal petal1"></div>
+                <div class="petal petal2"></div>
+                <div class="petal petal3"></div>
+                <div class="petal petal4"></div>
+                <div class="petal petal5"></div>
+
+                <div class="flower-center"></div>
+
+            </div>
+
+
+            <!-- FLOWER 3 -->
+
+            <div class="flower f3">
+
+                <div class="petal petal1"></div>
+                <div class="petal petal2"></div>
+                <div class="petal petal3"></div>
+                <div class="petal petal4"></div>
+                <div class="petal petal5"></div>
+
+                <div class="flower-center"></div>
+
+            </div>
+
+
+            <!-- FLOWER 4 -->
+
+            <div class="flower f4">
+
+                <div class="petal petal1"></div>
+                <div class="petal petal2"></div>
+                <div class="petal petal3"></div>
+                <div class="petal petal4"></div>
+                <div class="petal petal5"></div>
+
+                <div class="flower-center"></div>
+
+            </div>
+
+
+            <!-- FLOWER 5 -->
+
+            <div class="flower f5">
+
+                <div class="petal petal1"></div>
+                <div class="petal petal2"></div>
+                <div class="petal petal3"></div>
+                <div class="petal petal4"></div>
+                <div class="petal petal5"></div>
+
+                <div class="flower-center"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- WRAPPER -->
+
+        <div class="wrapper"></div>
+
+
+        <!-- RIBBON -->
+
+        <div class="bow">
+
+            <div class="bow-left"></div>
+            <div class="bow-right"></div>
+            <div class="bow-center"></div>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="message">
+
+            <h2>
+                For You 💗
+            </h2>
+
+            <p>
+
+                I may not be able to give you a real
+                bouquet right now, so I made this
+                little one just for you. 🌷
+
+                <br><br>
+
+                Every flower here carries a little bit
+                of my love. ❤️
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <button onclick="openBouquet()">
+        Open Bouquet 💐
+    </button>
 
 </div>
 
-<button onclick="openBouquet()">Open Bouquet 💐</button>
-
-</div>
 
 <script>
 
@@ -525,7 +727,8 @@ let opened = false;
 
 function openBouquet() {
 
-    const bouquet = document.getElementById("bouquet");
+    const bouquet =
+        document.getElementById("bouquet");
 
     opened = !opened;
 
@@ -533,31 +736,48 @@ function openBouquet() {
 
         bouquet.classList.add("open");
 
-        for (let i = 0; i < 25; i++) {
+
+        /* FALLING PETALS */
+
+        for (
+            let i = 0;
+            i < 30;
+            i++
+        ) {
 
             setTimeout(() => {
 
-                const flower = document.createElement("div");
+                const petal =
+                    document.createElement("div");
 
-                flower.className = "falling";
-                flower.innerHTML = "🌸";
+                petal.className =
+                    "falling";
 
-                flower.style.left =
+                petal.innerHTML =
+                    "🌸";
+
+                petal.style.left =
                     Math.random() * 100 + "vw";
 
-                flower.style.fontSize =
+                petal.style.fontSize =
                     (15 + Math.random() * 15) + "px";
 
-                flower.style.animationDuration =
+                petal.style.animationDuration =
                     (3 + Math.random() * 3) + "s";
 
-                document.body.appendChild(flower);
+                document.body.appendChild(
+                    petal
+                );
+
 
                 setTimeout(() => {
-                    flower.remove();
+
+                    petal.remove();
+
                 }, 6000);
 
             }, i * 100);
+
         }
 
     } else {
@@ -565,6 +785,7 @@ function openBouquet() {
         bouquet.classList.remove("open");
 
     }
+
 }
 
 </script>
