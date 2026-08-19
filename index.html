@@ -14,169 +14,191 @@
 
 body {
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: Arial, sans-serif;
-    background: linear-gradient(180deg, #ffe4ef, #fff7fa);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(180deg, #ffe1ed, #fff7fa);
 }
 
 .container {
     width: 100%;
     max-width: 430px;
     min-height: 100vh;
+    margin: auto;
     text-align: center;
-    padding: 70px 20px 30px;
+    padding: 70px 15px 20px;
 }
 
 h1 {
     color: #b83268;
     font-size: 29px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .subtitle {
-    color: #8d5870;
+    color: #92586f;
     font-size: 18px;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
 }
 
 /* BOUQUET */
 
 .bouquet {
     position: relative;
-    width: 330px;
-    height: 390px;
+    width: 350px;
+    height: 550px;
+    max-width: 100%;
     margin: auto;
-    cursor: pointer;
+}
+
+/* FLOWERS */
+
+.flowers {
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+    transition: 1s ease;
+    z-index: 5;
+}
+
+.flower {
+    position: absolute;
+    width: 90px;
+    height: 120px;
+    transition: 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.flower svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* positions */
+
+.f1 {
+    left: 5px;
+    top: 100px;
+    transform: rotate(-15deg);
+}
+
+.f2 {
+    left: 70px;
+    top: 25px;
+}
+
+.f3 {
+    right: 5px;
+    top: 100px;
+    transform: rotate(15deg);
+}
+
+.f4 {
+    left: 50px;
+    top: 150px;
+    transform: rotate(-8deg);
+}
+
+.f5 {
+    right: 45px;
+    top: 155px;
+    transform: rotate(8deg);
 }
 
 /* stems */
 
-.stem {
+.stems {
     position: absolute;
-    width: 7px;
-    height: 190px;
-    background: #4d9b61;
-    border-radius: 10px;
-    bottom: 115px;
+    width: 330px;
+    height: 300px;
     left: 50%;
-    transform-origin: bottom;
+    top: 150px;
+    transform: translateX(-50%);
     z-index: 1;
 }
 
-.s1 { transform: rotate(-25deg); }
-.s2 { transform: rotate(-12deg); }
-.s3 { transform: rotate(0deg); }
-.s4 { transform: rotate(13deg); }
-.s5 { transform: rotate(27deg); }
+.stem {
+    position: absolute;
+    width: 7px;
+    height: 230px;
+    background: #4f9d5d;
+    border-radius: 10px;
+    left: 50%;
+    bottom: 0;
+    transform-origin: bottom;
+}
+
+.stem:nth-child(1) {
+    transform: rotate(-25deg);
+}
+
+.stem:nth-child(2) {
+    transform: rotate(-12deg);
+}
+
+.stem:nth-child(3) {
+    transform: rotate(0deg);
+}
+
+.stem:nth-child(4) {
+    transform: rotate(13deg);
+}
+
+.stem:nth-child(5) {
+    transform: rotate(25deg);
+}
 
 /* leaves */
 
-.leaf {
+.leaves {
     position: absolute;
-    width: 65px;
-    height: 28px;
-    background: #65ad70;
-    border-radius: 100% 0 100% 0;
-    z-index: 2;
+    width: 330px;
+    height: 250px;
+    left: 50%;
+    top: 210px;
+    transform: translateX(-50%);
+    z-index: 3;
 }
 
-.l1 {
-    left: 65px;
-    bottom: 190px;
+.leaf {
+    position: absolute;
+    width: 85px;
+    height: 38px;
+    background: #5da968;
+    border-radius: 100% 0 100% 0;
+}
+
+.leaf1 {
+    left: 25px;
+    top: 80px;
     transform: rotate(20deg);
 }
 
-.l2 {
-    right: 55px;
-    bottom: 180px;
+.leaf2 {
+    right: 15px;
+    top: 70px;
     transform: rotate(155deg);
 }
 
-.l3 {
+.leaf3 {
     left: 125px;
-    bottom: 160px;
-    transform: rotate(-15deg);
-}
-
-/* flowers */
-
-.flower {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    z-index: 5;
-    transition: transform 1s cubic-bezier(.2,.8,.2,1);
-}
-
-.f1 {
-    left: 35px;
     top: 105px;
+    transform: rotate(-12deg);
 }
 
-.f2 {
-    left: 105px;
-    top: 55px;
-}
-
-.f3 {
-    left: 175px;
-    top: 100px;
-}
-
-.f4 {
-    left: 75px;
-    top: 145px;
-}
-
-.f5 {
-    left: 150px;
-    top: 150px;
-}
-
-/* petals */
-
-.petal {
-    position: absolute;
-    width: 35px;
-    height: 48px;
-    background: #ff6b9d;
-    border-radius: 50% 50% 45% 45%;
-    left: 22px;
-    top: 10px;
-    transform-origin: 50% 100%;
-}
-
-.p1 { transform: rotate(0deg) translateY(-16px); }
-.p2 { transform: rotate(72deg) translateY(-16px); }
-.p3 { transform: rotate(144deg) translateY(-16px); }
-.p4 { transform: rotate(216deg) translateY(-16px); }
-.p5 { transform: rotate(288deg) translateY(-16px); }
-
-.center {
-    position: absolute;
-    width: 27px;
-    height: 27px;
-    background: #ffd35c;
-    border-radius: 50%;
-    left: 27px;
-    top: 27px;
-    z-index: 10;
-}
-
-/* wrapping */
+/* WRAPPER */
 
 .wrapper {
     position: absolute;
-    bottom: 5px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    width: 245px;
-    height: 145px;
-    background: linear-gradient(135deg, #df7da1, #c95b84);
-    clip-path: polygon(8% 0, 92% 0, 78% 100%, 22% 100%);
+    width: 255px;
+    height: 165px;
+    background: linear-gradient(135deg, #df7fa2, #c75d86);
+    clip-path: polygon(5% 0,95% 0,78% 100%,22% 100%);
     z-index: 10;
     transition: 1s;
 }
@@ -184,38 +206,42 @@ h1 {
 .wrapper::before {
     content: "";
     position: absolute;
+    left: 0;
+    top: 65px;
     width: 100%;
     height: 25px;
-    background: #f4d05e;
-    top: 60px;
-    left: 0;
+    background: #f5d263;
 }
 
-.ribbon {
+.wrapper::after {
+    content: "";
     position: absolute;
+    left: 115px;
+    top: 0;
     width: 25px;
-    height: 145px;
-    background: #f4d05e;
-    left: 110px;
+    height: 165px;
+    background: #f5d263;
 }
 
-/* bow */
+/* ribbon */
 
 .bow {
     position: absolute;
-    width: 80px;
-    height: 50px;
-    left: 125px;
-    bottom: 115px;
+    width: 90px;
+    height: 55px;
+    left: 50%;
+    bottom: 135px;
+    transform: translateX(-50%);
     z-index: 15;
+    transition: 1s;
 }
 
 .bow-left,
 .bow-right {
     position: absolute;
-    width: 45px;
-    height: 35px;
-    background: #f4d05e;
+    width: 48px;
+    height: 38px;
+    background: #f5d263;
     top: 5px;
 }
 
@@ -233,51 +259,53 @@ h1 {
 
 .bow-center {
     position: absolute;
-    width: 25px;
-    height: 25px;
-    background: #d9ae39;
+    width: 27px;
+    height: 27px;
+    background: #d8ae3c;
     border-radius: 50%;
-    left: 28px;
+    left: 32px;
     top: 10px;
     z-index: 3;
 }
 
-/* message */
+/* MESSAGE */
 
 .message {
     position: absolute;
-    width: 310px;
+    width: 315px;
+    max-width: 90vw;
     left: 50%;
-    bottom: -80px;
+    bottom: -40px;
     transform: translateX(-50%) scale(0);
     opacity: 0;
     background: white;
     border-radius: 25px;
-    padding: 25px;
-    box-shadow: 0 15px 40px rgba(160,70,110,.18);
+    padding: 24px;
+    box-shadow: 0 15px 40px rgba(160,70,110,.2);
     transition: 1s;
     z-index: 30;
 }
 
 .message h2 {
-    color: #c33f72;
+    color: #c43d72;
+    font-size: 27px;
     margin-bottom: 15px;
 }
 
 .message p {
     color: #765666;
-    line-height: 1.6;
     font-size: 16px;
+    line-height: 1.6;
 }
 
-/* opened */
+/* OPEN */
 
 .open .wrapper {
     transform: translateX(-50%) translateY(70px);
 }
 
 .open .bow {
-    transform: translateY(70px);
+    transform: translateX(-50%) translateY(70px);
 }
 
 .open .message {
@@ -285,36 +313,36 @@ h1 {
     opacity: 1;
 }
 
-/* button */
+/* BUTTON */
 
 button {
-    margin-top: 20px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
     border: none;
-    background: #c83f72;
-    color: white;
     padding: 14px 28px;
     border-radius: 30px;
+    background: #c83f72;
+    color: white;
     font-size: 16px;
-    box-shadow: 0 8px 20px rgba(200,63,114,.25);
     cursor: pointer;
+    z-index: 50;
 }
 
-button:active {
-    transform: scale(.95);
-}
-
-/* floating petals */
+/* FALLING FLOWERS */
 
 .falling {
     position: fixed;
     top: -30px;
     pointer-events: none;
     animation: fall 5s linear forwards;
+    z-index: 100;
 }
 
 @keyframes fall {
     to {
-        transform: translateY(110vh) rotate(600deg);
+        transform: translateY(110vh) rotate(500deg);
         opacity: 0;
     }
 }
@@ -325,105 +353,174 @@ button:active {
 
 <div class="container">
 
-    <h1>A little bouquet for you 💐</h1>
-    <p class="subtitle">Tap the bouquet 🌷</p>
+<h1>A little bouquet for you 💐</h1>
+<p class="subtitle">Tap the bouquet 🌷</p>
 
-    <div class="bouquet" id="bouquet">
+<div class="bouquet" id="bouquet">
 
-        <!-- stems -->
-        <div class="stem s1"></div>
-        <div class="stem s2"></div>
-        <div class="stem s3"></div>
-        <div class="stem s4"></div>
-        <div class="stem s5"></div>
+<!-- STEMS -->
+<div class="stems">
+    <div class="stem"></div>
+    <div class="stem"></div>
+    <div class="stem"></div>
+    <div class="stem"></div>
+    <div class="stem"></div>
+</div>
 
-        <!-- leaves -->
-        <div class="leaf l1"></div>
-        <div class="leaf l2"></div>
-        <div class="leaf l3"></div>
+<!-- LEAVES -->
+<div class="leaves">
+    <div class="leaf leaf1"></div>
+    <div class="leaf leaf2"></div>
+    <div class="leaf leaf3"></div>
+</div>
 
-        <!-- flower 1 -->
-        <div class="flower f1">
-            <span class="petal p1"></span>
-            <span class="petal p2"></span>
-            <span class="petal p3"></span>
-            <span class="petal p4"></span>
-            <span class="petal p5"></span>
-            <span class="center"></span>
-        </div>
+<!-- REAL SVG FLOWERS -->
+<div class="flowers">
 
-        <!-- flower 2 -->
-        <div class="flower f2">
-            <span class="petal p1"></span>
-            <span class="petal p2"></span>
-            <span class="petal p3"></span>
-            <span class="petal p4"></span>
-            <span class="petal p5"></span>
-            <span class="center"></span>
-        </div>
+<!-- Flower 1 -->
+<div class="flower f1">
+<svg viewBox="0 0 100 130">
+    <path d="M50 120 C48 90 48 65 50 45"
+          stroke="#4f9d5d"
+          stroke-width="6"
+          fill="none"/>
 
-        <!-- flower 3 -->
-        <div class="flower f3">
-            <span class="petal p1"></span>
-            <span class="petal p2"></span>
-            <span class="petal p3"></span>
-            <span class="petal p4"></span>
-            <span class="petal p5"></span>
-            <span class="center"></span>
-        </div>
+    <path d="M50 55
+             C25 45 8 55 12 78
+             C15 95 32 101 50 82
+             C68 101 85 95 88 78
+             C92 55 75 45 50 55Z"
+          fill="#ff6f9f"/>
 
-        <!-- flower 4 -->
-        <div class="flower f4">
-            <span class="petal p1"></span>
-            <span class="petal p2"></span>
-            <span class="petal p3"></span>
-            <span class="petal p4"></span>
-            <span class="petal p5"></span>
-            <span class="center"></span>
-        </div>
+    <path d="M50 55
+             C35 38 39 18 50 10
+             C61 18 65 38 50 55Z"
+          fill="#ff5f91"/>
+</svg>
+</div>
 
-        <!-- flower 5 -->
-        <div class="flower f5">
-            <span class="petal p1"></span>
-            <span class="petal p2"></span>
-            <span class="petal p3"></span>
-            <span class="petal p4"></span>
-            <span class="petal p5"></span>
-            <span class="center"></span>
-        </div>
+<!-- Flower 2 -->
+<div class="flower f2">
+<svg viewBox="0 0 100 130">
+    <path d="M50 120 C50 85 50 60 50 40"
+          stroke="#4f9d5d"
+          stroke-width="6"
+          fill="none"/>
 
-        <!-- wrapper -->
-        <div class="wrapper">
-            <div class="ribbon"></div>
-        </div>
+    <path d="M50 55
+             C28 42 12 50 15 72
+             C18 91 34 96 50 80
+             C66 96 82 91 85 72
+             C88 50 72 42 50 55Z"
+          fill="#ff719f"/>
 
-        <!-- bow -->
-        <div class="bow">
-            <div class="bow-left"></div>
-            <div class="bow-right"></div>
-            <div class="bow-center"></div>
-        </div>
+    <path d="M50 55
+             C38 38 40 16 50 7
+             C60 16 62 38 50 55Z"
+          fill="#ff5d91"/>
+</svg>
+</div>
 
-        <!-- message -->
-        <div class="message">
-            <h2>For You 💗</h2>
-            <p>
-                I may not be able to give you a real
-                bouquet right now, so I made this
-                little one just for you. 🌷
-                <br><br>
-                Every flower here carries a little bit
-                of my love. ❤️
-            </p>
-        </div>
+<!-- Flower 3 -->
+<div class="flower f3">
+<svg viewBox="0 0 100 130">
+    <path d="M50 120 C52 90 52 65 50 43"
+          stroke="#4f9d5d"
+          stroke-width="6"
+          fill="none"/>
 
-    </div>
+    <path d="M50 55
+             C25 45 10 55 14 78
+             C17 96 34 100 50 82
+             C66 100 83 96 86 78
+             C90 55 75 45 50 55Z"
+          fill="#ff6b9d"/>
 
-    <button onclick="openBouquet()">Open Bouquet 💐</button>
+    <path d="M50 55
+             C35 38 39 18 50 10
+             C61 18 65 38 50 55Z"
+          fill="#ff5a8f"/>
+</svg>
+</div>
+
+<!-- Flower 4 -->
+<div class="flower f4">
+<svg viewBox="0 0 100 130">
+    <path d="M50 120 C50 85 50 60 50 40"
+          stroke="#4f9d5d"
+          stroke-width="6"
+          fill="none"/>
+
+    <path d="M50 55
+             C27 44 13 53 16 74
+             C19 91 35 96 50 81
+             C65 96 81 91 84 74
+             C87 53 73 44 50 55Z"
+          fill="#f95f91"/>
+
+    <path d="M50 55
+             C38 38 40 17 50 8
+             C60 17 62 38 50 55Z"
+          fill="#ff719f"/>
+</svg>
+</div>
+
+<!-- Flower 5 -->
+<div class="flower f5">
+<svg viewBox="0 0 100 130">
+    <path d="M50 120 C50 85 50 60 50 40"
+          stroke="#4f9d5d"
+          stroke-width="6"
+          fill="none"/>
+
+    <path d="M50 55
+             C27 44 13 53 16 74
+             C19 91 35 96 50 81
+             C65 96 81 91 84 74
+             C87 53 73 44 50 55Z"
+          fill="#ff6a9b"/>
+
+    <path d="M50 55
+             C38 38 40 17 50 8
+             C60 17 62 38 50 55Z"
+          fill="#ff5b91"/>
+</svg>
+</div>
+
+</div>
+
+<!-- WRAPPER -->
+<div class="wrapper"></div>
+
+<!-- BOW -->
+<div class="bow">
+    <div class="bow-left"></div>
+    <div class="bow-right"></div>
+    <div class="bow-center"></div>
+</div>
+
+<!-- MESSAGE -->
+<div class="message">
+    <h2>For You 💗</h2>
+
+    <p>
+        I may not be able to give you a real
+        bouquet right now, so I made this
+        little one just for you. 🌷
+        <br><br>
+        Every flower here carries a little bit
+        of my love. ❤️
+    </p>
+</div>
+
+</div>
+
+<button onclick="openBouquet()">Open Bouquet 💐</button>
 
 </div>
 
 <script>
+
 let opened = false;
 
 function openBouquet() {
@@ -440,22 +537,24 @@ function openBouquet() {
 
             setTimeout(() => {
 
-                const petal = document.createElement("div");
+                const flower = document.createElement("div");
 
-                petal.className = "falling";
-                petal.innerHTML = "🌸";
+                flower.className = "falling";
+                flower.innerHTML = "🌸";
 
-                petal.style.left = Math.random() * 100 + "vw";
-                petal.style.fontSize =
-                    (14 + Math.random() * 18) + "px";
+                flower.style.left =
+                    Math.random() * 100 + "vw";
 
-                petal.style.animationDuration =
+                flower.style.fontSize =
+                    (15 + Math.random() * 15) + "px";
+
+                flower.style.animationDuration =
                     (3 + Math.random() * 3) + "s";
 
-                document.body.appendChild(petal);
+                document.body.appendChild(flower);
 
                 setTimeout(() => {
-                    petal.remove();
+                    flower.remove();
                 }, 6000);
 
             }, i * 100);
@@ -467,6 +566,7 @@ function openBouquet() {
 
     }
 }
+
 </script>
 
 </body>
