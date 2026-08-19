@@ -1,171 +1,931 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Bouquet For You 💐</title>
 
-  <title>Good Morning, My Darling ❤️</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #fff1f7, #ffe3ef);
+}
+
+/* Background hearts */
+.heart {
+    position: absolute;
+    color: rgba(255, 105, 150, 0.25);
+    font-size: 25px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(110vh) rotate(0deg);
     }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ffb6c1, #ffd6a5);
-      overflow: hidden;
-      text-align: center;
-      color: white;
+    to {
+        transform: translateY(-10vh) rotate(360deg);
     }
+}
 
-    .message {
-      padding: 30px;
-      max-width: 600px;
-      animation: fadeIn 2s ease forwards;
-      opacity: 0;
-    }
+/* Main */
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
-      animation: slideDown 1.5s ease forwards;
-    }
+h1 {
+    color: #b83b67;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
 
-    #text {
-      font-size: 19px;
-      line-height: 1.8;
-      animation: fadeIn 3s ease 1s forwards;
-      opacity: 0;
-    }
+.subtitle {
+    color: #9b526d;
+    margin-bottom: 30px;
+}
 
-    .heart {
-      font-size: 50px;
-      animation: heartbeat 1.5s infinite;
-    }
+/* Bouquet */
+.bouquet {
+    width: 300px;
+    height: 370px;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+    transition: transform .4s;
+}
 
-    /* Soft fade */
-    @keyframes fadeIn {
-      from {
+.bouquet:hover {
+    transform: scale(1.04);
+}
+
+/* Flowers */
+.flowers {
+    position: absolute;
+    width: 100%;
+    height: 270px;
+    top: 0;
+    left: 0;
+    transition: 1s;
+}
+
+/* Flower */
+.flower {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    transform: scale(0);
+    transition: 1s cubic-bezier(.17,.67,.25,1.3);
+}
+
+.open .flower {
+    transform: scale(1);
+}
+
+.flower1 {
+    left: 35px;
+    top: 80px;
+}
+
+.flower2 {
+    left: 105px;
+    top: 30px;
+}
+
+.flower3 {
+    left: 175px;
+    top: 75px;
+}
+
+.flower4 {
+    left: 75px;
+    top: 125px;
+}
+
+.flower5 {
+    left: 145px;
+    top: 130px;
+}
+
+/* Petals */
+.petal {
+    position: absolute;
+    width: 38px;
+    height: 52px;
+    background: #ff719f;
+    border-radius: 50%;
+    left: 21px;
+    top: 14px;
+    transform-origin: 50% 100%;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-19px); }
+.petal:nth-child(2) { transform: rotate(72deg) translateY(-19px); }
+.petal:nth-child(3) { transform: rotate(144deg) translateY(-19px); }
+.petal:nth-child(4) { transform: rotate(216deg) translateY(-19px); }
+.petal:nth-child(5) { transform: rotate(288deg) translateY(-19px); }
+
+.center {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #ffd45c;
+    border-radius: 50%;
+    left: 25px;
+    top: 25px;
+    z-index: 3;
+}
+
+/* Leaves */
+.leaf {
+    position: absolute;
+    width: 55px;
+    height: 28px;
+    background: #65b879;
+    border-radius: 100% 0 100% 0;
+}
+
+.leaf1 {
+    left: 40px;
+    top: 180px;
+    transform: rotate(25deg);
+}
+
+.leaf2 {
+    right: 40px;
+    top: 170px;
+    transform: rotate(150deg);
+}
+
+.leaf3 {
+    left: 120px;
+    top: 200px;
+    transform: rotate(-15deg);
+}
+
+/* Wrapper */
+.wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 155px;
+    background: linear-gradient(145deg, #e89ab4, #c9688c);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+    z-index: 10;
+    transition: 1s;
+}
+
+.open .wrapper {
+    transform: translateX(-50%) translateY(80px);
+    opacity: .9;
+}
+
+.ribbon {
+    position: absolute;
+    width: 28px;
+    height: 155px;
+    background: #f7d36b;
+    left: 111px;
+}
+
+.ribbon-horizontal {
+    position: absolute;
+    width: 250px;
+    height: 25px;
+    background: #f7d36b;
+    top: 60px;
+}
+
+/* Bow */
+.bow {
+    position: absolute;
+    width: 80px;
+    height: 45px;
+    left: 85px;
+    top: 45px;
+    z-index: 12;
+}
+
+.bow::before,
+.bow::after {
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 38px;
+    background: #f7d36b;
+    border-radius: 50%;
+}
+
+.bow::before {
+    left: 0;
+    transform: rotate(25deg);
+}
+
+.bow::after {
+    right: 0;
+    transform: rotate(-25deg);
+}
+
+.bow-center {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #e8b83d;
+    border-radius: 50%;
+    left: 28px;
+    top: 7px;
+    z-index: 2;
+}
+
+/* Message */
+.message {
+    position: absolute;
+    width: 280px;
+    left: 50%;
+    bottom: -100px;
+    transform: translateX(-50%) scale(0);
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.15);
+    opacity: 0;
+    transition: 1s;
+    z-index: 20;
+}
+
+.open .message {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
+
+.message h2 {
+    color: #c94d78;
+    margin-bottom: 8px;
+}
+
+.message p {
+    color: #76515e;
+    line-height: 1.5;
+}
+
+button {
+    margin-top: 25px;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: #c94d78;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(201,77,120,.3);
+}
+
+button:active {
+    transform: scale(.95);
+}
+
+/* Falling petals */
+.petal-fall {
+    position: fixed;
+    top: -20px;
+    font-size: 20px;
+    animation: fall linear forwards;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
         opacity: 0;
-        transform: translateY(15px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
-
-    /* Title animation */
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Heartbeat */
-    @keyframes heartbeat {
-      0%, 100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.2);
-      }
-    }
-
-    /* Floating hearts */
-    .floating-heart {
-      position: absolute;
-      bottom: -50px;
-      font-size: 25px;
-      animation: floatUp 7s linear infinite;
-      opacity: 0.7;
-    }
-
-    .heart1 {
-      left: 10%;
-      animation-delay: 1s;
-    }
-
-    .heart2 {
-      left: 30%;
-      animation-delay: 3s;
-    }
-
-    .heart3 {
-      left: 55%;
-      animation-delay: 2s;
-    }
-
-    .heart4 {
-      left: 80%;
-      animation-delay: 4s;
-    }
-
-    @keyframes floatUp {
-      from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-
-      20% {
-        opacity: 0.7;
-      }
-
-      to {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Floating hearts -->
-  <div class="floating-heart heart1">❤️</div>
-  <div class="floating-heart heart2">💕</div>
-  <div class="floating-heart heart3">❤️</div>
-  <div class="floating-heart heart4">💗</div>
+<!-- Background hearts -->
+<div class="heart" style="left:10%;animation-delay:0s;">♥</div>
+<div class="heart" style="left:25%;animation-delay:2s;">♥</div>
+<div class="heart" style="left:45%;animation-delay:4s;">♥</div>
+<div class="heart" style="left:70%;animation-delay:1s;">♥</div>
+<div class="heart" style="left:90%;animation-delay:3s;">♥</div>
 
-  <div class="message">
+<div class="container">
 
-    <div class="heart">❤️</div>
+    <h1>A little bouquet for you 💐</h1>
+    <p class="subtitle">Tap the bouquet 🌷</p>
 
-    <h1>Good Morning, My Darling ☀️</h1>
+    <div class="bouquet" id="bouquet">
 
-    <p id="text">
-      I hope you slept well and woke up feeling happy today. ❤️
-      <br><br>
+        <div class="flowers">
 
-      I just want you to know that you're one of the first things
-      I think about when I wake up.
-      <br><br>
+            <div class="flower flower1">
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="center"></span>
+            </div>
 
-      No matter how far apart we are, I hope you always remember
-      that someone here is thinking about you and caring for you.
-      <br><br>
+            <div class="flower flower2">
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="center"></span>
+            </div>
 
-      Have a beautiful day, my darling. 🌷
-      <br><br>
+            <div class="flower flower3">
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="center"></span>
+            </div>
 
-      Take care always. I love you. ❤️
-    </p>
+            <div class="flower flower4">
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="center"></span>
+            </div>
 
-  </div>
+            <div class="flower flower5">
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="center"></span>
+            </div>
+
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+            <div class="leaf leaf3"></div>
+
+        </div>
+
+        <div class="wrapper">
+            <div class="ribbon"></div>
+            <div class="ribbon-horizontal"></div>
+        </div>
+
+        <div class="bow">
+            <div class="bow-center"></div>
+        </div>
+
+        <div class="message">
+            <h2>For You 💗</h2>
+            <p>
+                I may not be able to give you a real bouquet right now,
+                so I made this little one just for you. 🌷
+                <br><br>
+                Every flower here carries a little bit of my love.
+            </p>
+        </div>
+
+    </div>
+
+    <button onclick="openBouquet()">
+        Open Bouquet 💐
+    </button>
+
+</div>
+
+<script>
+
+let opened = false;
+
+function openBouquet() {
+
+    const bouquet = document.getElementById("bouquet");
+
+    if (!opened) {
+
+        bouquet.classList.add("open");
+        opened = true;
+
+        // Create falling petals
+        for (let i = 0; i < 30; i++) {
+
+            setTimeout(() => {
+
+                const petal = document.createElement("div");
+
+                petal.className = "petal-fall";
+                petal.innerHTML = "🌸";
+
+                petal.style.left = Math.random() * 100 + "vw";
+                petal.style.animationDuration =
+                    (3 + Math.random() * 4) + "s";
+
+                petal.style.fontSize =
+                    (15 + Math.random() * 20) + "px";
+
+                document.body.appendChild(petal);
+
+                setTimeout(() => {
+                    petal.remove();
+                }, 7000);
+
+            }, i * 100);
+
+        }
+
+    } else {
+
+        bouquet.classList.remove("open");
+        opened = false;
+
+    }
+}
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Bouquet For You 💐</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #fff1f7, #ffe3ef);
+}
+
+/* Background hearts */
+.heart {
+    position: absolute;
+    color: rgba(255, 105, 150, 0.25);
+    font-size: 25px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(110vh) rotate(0deg);
+    }
+    to {
+        transform: translateY(-10vh) rotate(360deg);
+    }
+}
+
+/* Main */
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+h1 {
+    color: #b83b67;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: #9b526d;
+    margin-bottom: 30px;
+}
+
+/* Bouquet */
+.bouquet {
+    width: 300px;
+    height: 370px;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+    transition: transform .4s;
+}
+
+.bouquet:hover {
+    transform: scale(1.04);
+}
+
+/* Flowers */
+.flowers {
+    position: absolute;
+    width: 100%;
+    height: 270px;
+    top: 0;
+    left: 0;
+    transition: 1s;
+}
+
+/* Flower */
+.flower {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    transform: scale(0);
+    transition: 1s cubic-bezier(.17,.67,.25,1.3);
+}
+
+.open .flower {
+    transform: scale(1);
+}
+
+.flower1 {
+    left: 35px;
+    top: 80px;
+}
+
+.flower2 {
+    left: 105px;
+    top: 30px;
+}
+
+.flower3 {
+    left: 175px;
+    top: 75px;
+}
+
+.flower4 {
+    left: 75px;
+    top: 125px;
+}
+
+.flower5 {
+    left: 145px;
+    top: 130px;
+}
+
+/* Petals */
+.petal {
+    position: absolute;
+    width: 38px;
+    height: 52px;
+    background: #ff719f;
+    border-radius: 50%;
+    left: 21px;
+    top: 14px;
+    transform-origin: 50% 100%;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-19px); }
+.petal:nth-child(2) { transform: rotate(72deg) translateY(-19px); }
+.petal:nth-child(3) { transform: rotate(144deg) translateY(-19px); }
+.petal:nth-child(4) { transform: rotate(216deg) translateY(-19px); }
+.petal:nth-child(5) { transform: rotate(288deg) translateY(-19px); }
+
+.center {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #ffd45c;
+    border-radius: 50%;
+    left: 25px;
+    top: 25px;
+    z-index: 3;
+}
+
+/* Leaves */
+.leaf {
+    position: absolute;
+    width: 55px;
+    height: 28px;
+    background: #65b879;
+    border-radius: 100% 0 100% 0;
+}
+
+.leaf1 {
+    left: 40px;
+    top: 180px;
+    transform: rotate(25deg);
+}
+
+.leaf2 {
+    right: 40px;
+    top: 170px;
+    transform: rotate(150deg);
+}
+
+.leaf3 {
+    left: 120px;
+    top: 200px;
+    transform: rotate(-15deg);
+}
+
+/* Wrapper */
+.wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 155px;
+    background: linear-gradient(145deg, #e89ab4, #c9688c);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+    z-index: 10;
+    transition: 1s;
+}
+
+.open .wrapper {
+    transform: translateX(-50%) translateY(80px);
+    opacity: .9;
+}
+
+.ribbon {
+    position: absolute;
+    width: 28px;
+    height: 155px;
+    background: #f7d36b;
+    left: 111px;
+}
+
+.ribbon-horizontal {
+    position: absolute;
+    width: 250px;
+    height: 25px;
+    background: #f7d36b;
+    top: 60px;
+}
+
+/* Bow */
+.bow {
+    position: absolute;
+    width: 80px;
+    height: 45px;
+    left: 85px;
+    top: 45px;
+    z-index: 12;
+}
+
+.bow::before,
+.bow::after {
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 38px;
+    background: #f7d36b;
+    border-radius: 50%;
+}
+
+.bow::before {
+    left: 0;
+    transform: rotate(25deg);
+}
+
+.bow::after {
+    right: 0;
+    transform: rotate(-25deg);
+}
+
+.bow-center {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #e8b83d;
+    border-radius: 50%;
+    left: 28px;
+    top: 7px;
+    z-index: 2;
+}
+
+/* Message */
+.message {
+    position: absolute;
+    width: 280px;
+    left: 50%;
+    bottom: -100px;
+    transform: translateX(-50%) scale(0);
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.15);
+    opacity: 0;
+    transition: 1s;
+    z-index: 20;
+}
+
+.open .message {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
+
+.message h2 {
+    color: #c94d78;
+    margin-bottom: 8px;
+}
+
+.message p {
+    color: #76515e;
+    line-height: 1.5;
+}
+
+button {
+    margin-top: 25px;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: #c94d78;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(201,77,120,.3);
+}
+
+button:active {
+    transform: scale(.95);
+}
+
+/* Falling petals */
+.petal-fall {
+    position: fixed;
+    top: -20px;
+    font-size: 20px;
+    animation: fall linear forwards;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background hearts -->
+<div class="heart" style="left:10%;animation-delay:0s;">♥</div>
+<div class="heart" style="left:25%;animation-delay:2s;">♥</div>
+<div class="heart" style="left:45%;animation-delay:4s;">♥</div>
+<div class="heart" style="left:70%;animation-delay:1s;">♥</div>
+<div class="heart" style="left:90%;animation-delay:3s;">♥</div>
+
+<div class="container">
+
+    <h1>A little bouquet for you 💐</h1>
+    <p class="subtitle">Tap the bouquet 🌷</p>
+
+    <div class="bouquet" id="bouquet">
+
+        <div class="flowers">
+
+            <div class="flower flower1">
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="center"></span>
+            </div>
+
+            <div class="flower flower2">
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="center"></span>
+            </div>
+
+            <div class="flower flower3">
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="center"></span>
+            </div>
+
+            <div class="flower flower4">
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="center"></span>
+            </div>
+
+            <div class="flower flower5">
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="center"></span>
+            </div>
+
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+            <div class="leaf leaf3"></div>
+
+        </div>
+
+        <div class="wrapper">
+            <div class="ribbon"></div>
+            <div class="ribbon-horizontal"></div>
+        </div>
+
+        <div class="bow">
+            <div class="bow-center"></div>
+        </div>
+
+        <div class="message">
+            <h2>For You 💗</h2>
+            <p>
+                I may not be able to give you a real bouquet right now,
+                so I made this little one just for you. 🌷
+                <br><br>
+                Every flower here carries a little bit of my love.
+            </p>
+        </div>
+
+    </div>
+
+    <button onclick="openBouquet()">
+        Open Bouquet 💐
+    </button>
+
+</div>
+
+<script>
+
+let opened = false;
+
+function openBouquet() {
+
+    const bouquet = document.getElementById("bouquet");
+
+    if (!opened) {
+
+        bouquet.classList.add("open");
+        opened = true;
+
+        // Create falling petals
+        for (let i = 0; i < 30; i++) {
+
+            setTimeout(() => {
+
+                const petal = document.createElement("div");
+
+                petal.className = "petal-fall";
+                petal.innerHTML = "🌸";
+
+                petal.style.left = Math.random() * 100 + "vw";
+                petal.style.animationDuration =
+                    (3 + Math.random() * 4) + "s";
+
+                petal.style.fontSize =
+                    (15 + Math.random() * 20) + "px";
+
+                document.body.appendChild(petal);
+
+                setTimeout(() => {
+                    petal.remove();
+                }, 7000);
+
+            }, i * 100);
+
+        }
+
+    } else {
+
+        bouquet.classList.remove("open");
+        opened = false;
+
+    }
+}
+
+</script>
 
 </body>
 </html>
