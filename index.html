@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Bouquet For You 💐</title>
+<title>For You 💐</title>
 
 <style>
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,387 +14,78 @@
 }
 
 body {
+    width: 100%;
     min-height: 100vh;
     overflow: hidden;
     font-family: Arial, sans-serif;
-    background: linear-gradient(
-        180deg,
-        #ffe0ec 0%,
-        #fff5f9 100%
-    );
+    background: linear-gradient(#ffe1ed, #fff7fa);
 }
 
-.container {
+.page {
     width: 100%;
     max-width: 430px;
     height: 100vh;
     margin: auto;
-    text-align: center;
-    padding-top: 70px;
     position: relative;
+    text-align: center;
+    padding-top: 65px;
 }
 
-/* TITLE */
-
-h1 {
+.title {
     color: #b83268;
     font-size: 29px;
-    margin-bottom: 12px;
+    font-weight: bold;
 }
 
 .subtitle {
-    color: #92586f;
+    margin-top: 12px;
+    color: #87566c;
     font-size: 18px;
 }
 
 /* =========================
-   BOUQUET AREA
+   BOUQUET
 ========================= */
 
 .bouquet {
-    position: relative;
-    width: 350px;
-    height: 520px;
-    max-width: 100%;
-    margin: 15px auto 0;
-}
-
-/* =========================
-   STEMS
-========================= */
-
-.stems {
     position: absolute;
-    width: 330px;
-    height: 310px;
-    left: 50%;
-    top: 130px;
-    transform: translateX(-50%);
-    z-index: 2;
-}
-
-.stem {
-    position: absolute;
-    width: 7px;
-    height: 245px;
-    left: 50%;
-    bottom: 0;
-    background: #4d9b5c;
-    border-radius: 20px;
-    transform-origin: bottom center;
-}
-
-.stem:nth-child(1) {
-    transform: rotate(-30deg);
-}
-
-.stem:nth-child(2) {
-    transform: rotate(-15deg);
-}
-
-.stem:nth-child(3) {
-    transform: rotate(0deg);
-}
-
-.stem:nth-child(4) {
-    transform: rotate(15deg);
-}
-
-.stem:nth-child(5) {
-    transform: rotate(30deg);
-}
-
-/* =========================
-   LEAVES
-========================= */
-
-.leaves {
-    position: absolute;
-    width: 330px;
-    height: 300px;
+    width: 360px;
+    height: 500px;
     left: 50%;
     top: 170px;
     transform: translateX(-50%);
-    z-index: 4;
 }
 
-.leaf {
-    position: absolute;
-    width: 80px;
-    height: 38px;
-    background: #62aa6c;
-    border-radius: 100% 0 100% 0;
-}
-
-.leaf1 {
-    left: 20px;
-    top: 120px;
-    transform: rotate(20deg);
-}
-
-.leaf2 {
-    right: 10px;
-    top: 105px;
-    transform: rotate(155deg);
-}
-
-.leaf3 {
-    left: 105px;
-    top: 170px;
-    transform: rotate(-20deg);
-}
-
-.leaf4 {
-    right: 65px;
-    top: 170px;
-    transform: rotate(160deg);
-}
-
-/* =========================
-   FLOWERS
-========================= */
-
-.flowers {
-    position: absolute;
-    width: 330px;
-    height: 300px;
-    left: 50%;
-    top: 25px;
-    transform: translateX(-50%);
-    z-index: 7;
-}
-
-.flower {
-    position: absolute;
-    width: 86px;
-    height: 86px;
-}
-
-/* positions */
-
-.f1 {
-    left: 5px;
-    top: 110px;
-}
-
-.f2 {
-    left: 75px;
-    top: 35px;
-}
-
-.f3 {
-    right: 5px;
-    top: 110px;
-}
-
-.f4 {
-    left: 50px;
-    top: 170px;
-}
-
-.f5 {
-    right: 45px;
-    top: 170px;
-}
-
-/* =========================
-   PETALS
-========================= */
-
-.petal {
-    position: absolute;
-    width: 43px;
-    height: 52px;
-
-    /* IMPORTANT:
-       bawat petal ay hiwalay */
-    background: #ff6698;
-
-    border-radius:
-        50% 50%
-        45% 45%
-        50% 50%;
-
-    left: 21px;
-    top: 17px;
-
-    transform-origin: 50% 100%;
-}
-
-/* 5 COMPLETE PETALS */
-
-.petal1 {
-    transform: rotate(0deg) translateY(-25px);
-}
-
-.petal2 {
-    transform: rotate(72deg) translateY(-25px);
-}
-
-.petal3 {
-    transform: rotate(144deg) translateY(-25px);
-}
-
-.petal4 {
-    transform: rotate(216deg) translateY(-25px);
-}
-
-.petal5 {
-    transform: rotate(288deg) translateY(-25px);
-}
-
-/* FLOWER CENTER */
-
-.flower-center {
-    position: absolute;
-    width: 28px;
-    height: 28px;
-
-    left: 29px;
-    top: 29px;
-
-    border-radius: 50%;
-
-    background: #ffd052;
-
-    border: 3px solid #f4bd3f;
-
-    z-index: 10;
-}
-
-/* =========================
-   WRAPPING PAPER
-========================= */
-
-.wrapper {
-    position: absolute;
-
-    width: 255px;
-    height: 165px;
-
-    left: 50%;
-    bottom: 25px;
-
-    transform: translateX(-50%);
-
-    background:
-        linear-gradient(
-            135deg,
-            #df7fa2,
-            #c95d86
-        );
-
-    clip-path:
-        polygon(
-            5% 0,
-            95% 0,
-            78% 100%,
-            22% 100%
-        );
-
-    z-index: 12;
-
-    transition: 1s;
-}
-
-/* yellow horizontal ribbon */
-
-.wrapper::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 65px;
-
+svg {
     width: 100%;
-    height: 25px;
-
-    background: #f5d263;
+    height: 100%;
+    overflow: visible;
 }
 
-/* yellow vertical ribbon */
+/* bouquet opening */
 
-.wrapper::after {
-    content: "";
-
-    position: absolute;
-
-    left: 115px;
-    top: 0;
-
-    width: 25px;
-    height: 165px;
-
-    background: #f5d263;
+.flowerGroup {
+    transition: transform 1s cubic-bezier(.2,.8,.2,1);
 }
 
-/* =========================
-   BOW
-========================= */
-
-.bow {
-    position: absolute;
-
-    width: 90px;
-    height: 55px;
-
-    left: 50%;
-    bottom: 135px;
-
-    transform: translateX(-50%);
-
-    z-index: 20;
-
-    transition: 1s;
+.bouquet.open .leftFlower {
+    transform: translateX(-12px) rotate(-8deg);
 }
 
-.bow-left,
-.bow-right {
-    position: absolute;
-
-    width: 48px;
-    height: 38px;
-
-    top: 5px;
-
-    background: #f5d263;
+.bouquet.open .rightFlower {
+    transform: translateX(12px) rotate(8deg);
 }
 
-.bow-left {
-    left: 0;
-
-    border-radius:
-        50% 10%
-        50% 50%;
-
-    transform: rotate(15deg);
+.bouquet.open .centerFlower {
+    transform: translateY(-12px);
 }
 
-.bow-right {
-    right: 0;
-
-    border-radius:
-        10% 50%
-        50% 50%;
-
-    transform: rotate(-15deg);
+.bouquet.open .wrapper {
+    transform: translateY(65px);
 }
 
-.bow-center {
-    position: absolute;
-
-    width: 27px;
-    height: 27px;
-
-    left: 32px;
-    top: 10px;
-
-    border-radius: 50%;
-
-    background: #d9ad39;
-
-    z-index: 5;
+.bouquet.open .ribbon {
+    transform: translateY(65px);
 }
 
 /* =========================
@@ -404,76 +94,44 @@ h1 {
 
 .message {
     position: absolute;
-
     width: 315px;
-    max-width: 90vw;
+    max-width: calc(100vw - 40px);
 
     left: 50%;
+    bottom: -20px;
 
-    bottom: -40px;
-
-    transform:
-        translateX(-50%)
-        translateY(30px)
-        scale(.8);
+    transform: translate(-50%, 50px) scale(.8);
 
     opacity: 0;
 
     background: white;
-
     border-radius: 25px;
 
     padding: 24px;
 
     box-shadow:
-        0 15px 40px
-        rgba(160,70,110,.20);
+        0 15px 40px rgba(150, 70, 110, .20);
 
-    transition:
-        .8s ease;
+    transition: .8s ease;
 
-    z-index: 30;
+    z-index: 20;
+}
+
+.open .message {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 1;
 }
 
 .message h2 {
     color: #c43d72;
-
     font-size: 27px;
-
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
 
 .message p {
     color: #765666;
-
     font-size: 16px;
-
     line-height: 1.6;
-}
-
-/* =========================
-   OPEN ANIMATION
-========================= */
-
-.open .wrapper {
-    transform:
-        translateX(-50%)
-        translateY(70px);
-}
-
-.open .bow {
-    transform:
-        translateX(-50%)
-        translateY(70px);
-}
-
-.open .message {
-    transform:
-        translateX(-50%)
-        translateY(0)
-        scale(1);
-
-    opacity: 1;
 }
 
 /* =========================
@@ -481,39 +139,30 @@ h1 {
 ========================= */
 
 button {
-    position: absolute;
+    position: fixed;
 
     left: 50%;
-    bottom: 12px;
+    bottom: 18px;
 
     transform: translateX(-50%);
 
     border: none;
-
-    padding:
-        14px 28px;
-
     border-radius: 30px;
 
-    background: #c83f72;
+    padding: 14px 28px;
 
+    background: #c83f72;
     color: white;
 
     font-size: 16px;
 
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 20px
-        rgba(200,63,114,.25);
+    box-shadow: 0 8px 20px rgba(200, 63, 114, .25);
 
     z-index: 50;
 }
 
 button:active {
-    transform:
-        translateX(-50%)
-        scale(.95);
+    transform: translateX(-50%) scale(.95);
 }
 
 /* =========================
@@ -522,182 +171,496 @@ button:active {
 
 .falling {
     position: fixed;
-
     top: -30px;
-
+    z-index: 100;
     pointer-events: none;
 
-    z-index: 100;
-
-    animation:
-        fall 5s linear forwards;
+    animation: fall linear forwards;
 }
 
 @keyframes fall {
-
     to {
         transform:
             translateY(110vh)
-            rotate(600deg);
+            rotate(500deg);
 
         opacity: 0;
     }
 }
-
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="page">
 
-    <h1>
+    <div class="title">
         A little bouquet for you 💐
-    </h1>
+    </div>
 
-    <p class="subtitle">
+    <div class="subtitle">
         Tap the bouquet 🌷
-    </p>
+    </div>
 
 
-    <div
-        class="bouquet"
-        id="bouquet"
-    >
+    <div class="bouquet" id="bouquet">
 
-        <!-- STEMS -->
+        <svg viewBox="0 0 360 500">
 
-        <div class="stems">
+            <!-- =====================
+                 STEMS
+            ====================== -->
 
-            <div class="stem"></div>
-            <div class="stem"></div>
-            <div class="stem"></div>
-            <div class="stem"></div>
-            <div class="stem"></div>
+            <g
+                fill="none"
+                stroke="#4d995a"
+                stroke-width="7"
+                stroke-linecap="round"
+            >
 
-        </div>
+                <path d="M180 410 C175 300 100 230 75 150"/>
 
+                <path d="M180 410 C175 290 135 210 125 120"/>
 
-        <!-- LEAVES -->
+                <path d="M180 410 C180 280 180 200 180 105"/>
 
-        <div class="leaves">
+                <path d="M180 410 C185 290 225 210 235 120"/>
 
-            <div class="leaf leaf1"></div>
-            <div class="leaf leaf2"></div>
-            <div class="leaf leaf3"></div>
-            <div class="leaf leaf4"></div>
+                <path d="M180 410 C190 300 270 230 285 150"/>
 
-        </div>
+            </g>
 
 
-        <!-- FLOWERS -->
+            <!-- =====================
+                 LEAVES
+            ====================== -->
 
-        <div class="flowers">
+            <g fill="#62aa6b">
 
+                <ellipse
+                    cx="105"
+                    cy="300"
+                    rx="48"
+                    ry="18"
+                    transform="rotate(25 105 300)"
+                />
 
-            <!-- FLOWER 1 -->
+                <ellipse
+                    cx="255"
+                    cy="300"
+                    rx="48"
+                    ry="18"
+                    transform="rotate(-25 255 300)"
+                />
 
-            <div class="flower f1">
+                <ellipse
+                    cx="140"
+                    cy="340"
+                    rx="45"
+                    ry="17"
+                    transform="rotate(-25 140 340)"
+                />
 
-                <div class="petal petal1"></div>
-                <div class="petal petal2"></div>
-                <div class="petal petal3"></div>
-                <div class="petal petal4"></div>
-                <div class="petal petal5"></div>
+                <ellipse
+                    cx="220"
+                    cy="350"
+                    rx="45"
+                    ry="17"
+                    transform="rotate(25 220 350)"
+                />
 
-                <div class="flower-center"></div>
-
-            </div>
-
-
-            <!-- FLOWER 2 -->
-
-            <div class="flower f2">
-
-                <div class="petal petal1"></div>
-                <div class="petal petal2"></div>
-                <div class="petal petal3"></div>
-                <div class="petal petal4"></div>
-                <div class="petal petal5"></div>
-
-                <div class="flower-center"></div>
-
-            </div>
-
-
-            <!-- FLOWER 3 -->
-
-            <div class="flower f3">
-
-                <div class="petal petal1"></div>
-                <div class="petal petal2"></div>
-                <div class="petal petal3"></div>
-                <div class="petal petal4"></div>
-                <div class="petal petal5"></div>
-
-                <div class="flower-center"></div>
-
-            </div>
+            </g>
 
 
-            <!-- FLOWER 4 -->
+            <!-- =====================
+                 LEFT FLOWER
+            ====================== -->
 
-            <div class="flower f4">
+            <g class="flowerGroup leftFlower">
 
-                <div class="petal petal1"></div>
-                <div class="petal petal2"></div>
-                <div class="petal petal3"></div>
-                <div class="petal petal4"></div>
-                <div class="petal petal5"></div>
+                <!-- petals -->
 
-                <div class="flower-center"></div>
+                <ellipse
+                    cx="75"
+                    cy="130"
+                    rx="28"
+                    ry="45"
+                    fill="#ff6698"
+                />
 
-            </div>
+                <ellipse
+                    cx="75"
+                    cy="130"
+                    rx="28"
+                    ry="45"
+                    fill="#ff6698"
+                    transform="rotate(72 75 130)"
+                />
+
+                <ellipse
+                    cx="75"
+                    cy="130"
+                    rx="28"
+                    ry="45"
+                    fill="#ff6698"
+                    transform="rotate(144 75 130)"
+                />
+
+                <ellipse
+                    cx="75"
+                    cy="130"
+                    rx="28"
+                    ry="45"
+                    fill="#ff6698"
+                    transform="rotate(216 75 130)"
+                />
+
+                <ellipse
+                    cx="75"
+                    cy="130"
+                    rx="28"
+                    ry="45"
+                    fill="#ff6698"
+                    transform="rotate(288 75 130)"
+                />
+
+                <!-- center -->
+
+                <circle
+                    cx="75"
+                    cy="130"
+                    r="18"
+                    fill="#ffd052"
+                />
+
+            </g>
 
 
-            <!-- FLOWER 5 -->
+            <!-- =====================
+                 CENTER FLOWER
+            ====================== -->
 
-            <div class="flower f5">
+            <g class="flowerGroup centerFlower">
 
-                <div class="petal petal1"></div>
-                <div class="petal petal2"></div>
-                <div class="petal petal3"></div>
-                <div class="petal petal4"></div>
-                <div class="petal petal5"></div>
+                <ellipse
+                    cx="180"
+                    cy="95"
+                    rx="29"
+                    ry="47"
+                    fill="#ff5f91"
+                />
 
-                <div class="flower-center"></div>
+                <ellipse
+                    cx="180"
+                    cy="95"
+                    rx="29"
+                    ry="47"
+                    fill="#ff5f91"
+                    transform="rotate(72 180 95)"
+                />
 
-            </div>
+                <ellipse
+                    cx="180"
+                    cy="95"
+                    rx="29"
+                    ry="47"
+                    fill="#ff5f91"
+                    transform="rotate(144 180 95)"
+                />
 
-        </div>
+                <ellipse
+                    cx="180"
+                    cy="95"
+                    rx="29"
+                    ry="47"
+                    fill="#ff5f91"
+                    transform="rotate(216 180 95)"
+                />
+
+                <ellipse
+                    cx="180"
+                    cy="95"
+                    rx="29"
+                    ry="47"
+                    fill="#ff5f91"
+                    transform="rotate(288 180 95)"
+                />
+
+                <circle
+                    cx="180"
+                    cy="95"
+                    r="18"
+                    fill="#ffd052"
+                />
+
+            </g>
 
 
-        <!-- WRAPPER -->
+            <!-- =====================
+                 RIGHT FLOWER
+            ====================== -->
 
-        <div class="wrapper"></div>
+            <g class="flowerGroup rightFlower">
+
+                <ellipse
+                    cx="285"
+                    cy="130"
+                    rx="28"
+                    ry="45"
+                    fill="#ff6b9d"
+                />
+
+                <ellipse
+                    cx="285"
+                    cy="130"
+                    rx="28"
+                    ry="45"
+                    fill="#ff6b9d"
+                    transform="rotate(72 285 130)"
+                />
+
+                <ellipse
+                    cx="285"
+                    cy="130"
+                    rx="28"
+                    ry="45"
+                    fill="#ff6b9d"
+                    transform="rotate(144 285 130)"
+                />
+
+                <ellipse
+                    cx="285"
+                    cy="130"
+                    rx="28"
+                    ry="45"
+                    fill="#ff6b9d"
+                    transform="rotate(216 285 130)"
+                />
+
+                <ellipse
+                    cx="285"
+                    cy="130"
+                    rx="28"
+                    ry="45"
+                    fill="#ff6b9d"
+                    transform="rotate(288 285 130)"
+                />
+
+                <circle
+                    cx="285"
+                    cy="130"
+                    r="18"
+                    fill="#ffd052"
+                />
+
+            </g>
 
 
-        <!-- RIBBON -->
+            <!-- =====================
+                 LOWER LEFT FLOWER
+            ====================== -->
 
-        <div class="bow">
+            <g>
 
-            <div class="bow-left"></div>
-            <div class="bow-right"></div>
-            <div class="bow-center"></div>
+                <ellipse
+                    cx="125"
+                    cy="205"
+                    rx="27"
+                    ry="43"
+                    fill="#ff719f"
+                />
 
-        </div>
+                <ellipse
+                    cx="125"
+                    cy="205"
+                    rx="27"
+                    ry="43"
+                    fill="#ff719f"
+                    transform="rotate(72 125 205)"
+                />
+
+                <ellipse
+                    cx="125"
+                    cy="205"
+                    rx="27"
+                    ry="43"
+                    fill="#ff719f"
+                    transform="rotate(144 125 205)"
+                />
+
+                <ellipse
+                    cx="125"
+                    cy="205"
+                    rx="27"
+                    ry="43"
+                    fill="#ff719f"
+                    transform="rotate(216 125 205)"
+                />
+
+                <ellipse
+                    cx="125"
+                    cy="205"
+                    rx="27"
+                    ry="43"
+                    fill="#ff719f"
+                    transform="rotate(288 125 205)"
+                />
+
+                <circle
+                    cx="125"
+                    cy="205"
+                    r="17"
+                    fill="#ffd052"
+                />
+
+            </g>
+
+
+            <!-- =====================
+                 LOWER RIGHT FLOWER
+            ====================== -->
+
+            <g>
+
+                <ellipse
+                    cx="235"
+                    cy="205"
+                    rx="27"
+                    ry="43"
+                    fill="#ff6698"
+                />
+
+                <ellipse
+                    cx="235"
+                    cy="205"
+                    rx="27"
+                    ry="43"
+                    fill="#ff6698"
+                    transform="rotate(72 235 205)"
+                />
+
+                <ellipse
+                    cx="235"
+                    cy="205"
+                    rx="27"
+                    ry="43"
+                    fill="#ff6698"
+                    transform="rotate(144 235 205)"
+                />
+
+                <ellipse
+                    cx="235"
+                    cy="205"
+                    rx="27"
+                    ry="43"
+                    fill="#ff6698"
+                    transform="rotate(216 235 205)"
+                />
+
+                <ellipse
+                    cx="235"
+                    cy="205"
+                    rx="27"
+                    ry="43"
+                    fill="#ff6698"
+                    transform="rotate(288 235 205)"
+                />
+
+                <circle
+                    cx="235"
+                    cy="205"
+                    r="17"
+                    fill="#ffd052"
+                />
+
+            </g>
+
+
+            <!-- =====================
+                 WRAPPING PAPER
+            ====================== -->
+
+            <g class="wrapper">
+
+                <path
+                    d="M65 315 L295 315 L265 475 L95 475 Z"
+                    fill="#d56b91"
+                />
+
+                <path
+                    d="M65 315 L180 345 L95 475 Z"
+                    fill="#e184a4"
+                />
+
+                <path
+                    d="M295 315 L180 345 L265 475 Z"
+                    fill="#c95c85"
+                />
+
+                <!-- ribbon -->
+
+                <rect
+                    x="167"
+                    y="315"
+                    width="26"
+                    height="160"
+                    fill="#f4d263"
+                />
+
+                <rect
+                    x="65"
+                    y="365"
+                    width="230"
+                    height="25"
+                    fill="#f4d263"
+                />
+
+            </g>
+
+
+            <!-- =====================
+                 BOW
+            ====================== -->
+
+            <g class="ribbon">
+
+                <ellipse
+                    cx="155"
+                    cy="325"
+                    rx="38"
+                    ry="23"
+                    fill="#f4d263"
+                    transform="rotate(20 155 325)"
+                />
+
+                <ellipse
+                    cx="205"
+                    cy="325"
+                    rx="38"
+                    ry="23"
+                    fill="#f4d263"
+                    transform="rotate(-20 205 325)"
+                />
+
+                <circle
+                    cx="180"
+                    cy="325"
+                    r="15"
+                    fill="#d8ad3b"
+                />
+
+            </g>
+
+        </svg>
 
 
         <!-- MESSAGE -->
 
         <div class="message">
 
-            <h2>
-                For You 💗
-            </h2>
+            <h2>For You 💗</h2>
 
             <p>
-
                 I may not be able to give you a real
                 bouquet right now, so I made this
                 little one just for you. 🌷
@@ -706,7 +669,6 @@ button:active {
 
                 Every flower here carries a little bit
                 of my love. ❤️
-
             </p>
 
         </div>
@@ -736,44 +698,32 @@ function openBouquet() {
 
         bouquet.classList.add("open");
 
+        /* falling flowers */
 
-        /* FALLING PETALS */
-
-        for (
-            let i = 0;
-            i < 30;
-            i++
-        ) {
+        for (let i = 0; i < 25; i++) {
 
             setTimeout(() => {
 
-                const petal =
+                const flower =
                     document.createElement("div");
 
-                petal.className =
-                    "falling";
+                flower.className = "falling";
 
-                petal.innerHTML =
-                    "🌸";
+                flower.innerHTML = "🌸";
 
-                petal.style.left =
+                flower.style.left =
                     Math.random() * 100 + "vw";
 
-                petal.style.fontSize =
+                flower.style.fontSize =
                     (15 + Math.random() * 15) + "px";
 
-                petal.style.animationDuration =
+                flower.style.animationDuration =
                     (3 + Math.random() * 3) + "s";
 
-                document.body.appendChild(
-                    petal
-                );
-
+                document.body.appendChild(flower);
 
                 setTimeout(() => {
-
-                    petal.remove();
-
+                    flower.remove();
                 }, 6000);
 
             }, i * 100);
