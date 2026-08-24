@@ -3,61 +3,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para Kay Jayson</title>
+
+  <title>For My Darling ❤️</title>
 
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       min-height: 100vh;
-
       display: flex;
       justify-content: center;
       align-items: center;
-
-      font-family: Arial, sans-serif;
-      background: white;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.5)),
+        url("background.jpg") center/cover no-repeat fixed;
+      overflow-x: hidden;
+      color: #fff;
     }
 
-    .box {
-      width: 90%;
-      max-width: 500px;
-
-      padding: 35px 20px;
-
+    .container {
+      width: 100%;
+      max-width: 700px;
+      padding: 25px;
       text-align: center;
-
-      background: white;
-      border-radius: 25px;
-
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-
-      animation: pop 0.8s ease;
     }
 
-    h1 {
-      margin: 0;
-      color: #ff4081;
-      font-size: 30px;
+    /* HEARTS */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0;
+      pointer-events: none;
     }
 
-    p {
-      font-size: 22px;
-      margin-top: 15px;
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(.7);
+        opacity: 0;
+      }
+      15% {
+        opacity: .8;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.3);
+        opacity: 0;
+      }
     }
 
-    @keyframes pop {
+    /* ENVELOPE */
+    .envelope-area {
+      cursor: pointer;
+      transition: .4s;
+    }
+
+    .envelope-area:hover {
+      transform: scale(1.03);
+    }
+
+    .envelope {
+      position: relative;
+      width: 320px;
+      height: 210px;
+      margin: auto;
+      background: #f3d2c1;
+      border-radius: 5px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.4);
+    }
+
+    .envelope::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #e8b9a5;
+      clip-path: polygon(0 0, 50% 55%, 100% 0);
+      z-index: 3;
+      transform-origin: top;
+      transition: 1s ease;
+    }
+
+    .envelope::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-left: 160px solid #edc6b4;
+      border-top: 105px solid transparent;
+      border-bottom: 105px solid transparent;
+      z-index: 2;
+    }
+
+    .paper {
+      position: absolute;
+      width: 280px;
+      height: 180px;
+      background: #fffaf5;
+      left: 20px;
+      bottom: 10px;
+      color: #5b3a32;
+      padding: 20px;
+      border-radius: 4px;
+      z-index: 1;
+      transition: 1s ease;
+    }
+
+    .heart-seal {
+      position: absolute;
+      z-index: 5;
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      font-size: 45px;
+      transition: .5s;
+    }
+
+    .opened .envelope::before {
+      transform: rotateX(180deg);
+    }
+
+    .opened .paper {
+      transform: translateY(-170px);
+      z-index: 6;
+    }
+
+    .opened .heart-seal {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+    }
+
+    .instruction {
+      margin-top: 35px;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(0,0,0,.6);
+    }
+
+    /* LETTER */
+    .letter {
+      display: none;
+      margin-top: 30px;
+      background: rgba(255,250,245,.96);
+      color: #4a302b;
+      border-radius: 18px;
+      padding: 35px 28px;
+      text-align: left;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      animation: appear 1.2s ease forwards;
+    }
+
+    @keyframes appear {
       from {
         opacity: 0;
-        transform: scale(0.5);
+        transform: translateY(30px);
       }
-
       to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
+      }
+    }
+
+    .letter h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 25px;
+      color: #a65353;
+    }
+
+    .letter p {
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .signature {
+      text-align: right;
+      font-style: italic;
+      font-size: 18px;
+      margin-top: 25px;
+    }
+
+    .close-btn {
+      display: block;
+      margin: 25px auto 0;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 25px;
+      background: #a65353;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    @media (max-width: 500px) {
+      .envelope {
+        width: 280px;
+        height: 185px;
+      }
+
+      .envelope::after {
+        border-left-width: 140px;
+        border-top-width: 92px;
+        border-bottom-width: 92px;
+      }
+
+      .paper {
+        width: 240px;
+      }
+
+      .letter {
+        padding: 25px 20px;
+      }
+
+      .letter p {
+        font-size: 16px;
       }
     }
   </style>
@@ -65,10 +229,160 @@
 
 <body>
 
-  <div class="box">
-    <h1>TANGINA MO JAYSON HAHAHA</h1>
-    <p>😭😭😭</p>
+  <div class="container">
+
+    <div class="envelope-area" id="envelopeArea">
+
+      <div class="envelope" id="envelope">
+
+        <div class="paper">
+          <div style="text-align:center; font-size:22px;">
+            A little message for you ❤️
+          </div>
+        </div>
+
+        <div class="heart-seal">❤️</div>
+
+      </div>
+
+      <div class="instruction">
+        Tap the envelope, darling ❤️
+      </div>
+
+    </div>
+
+
+    <div class="letter" id="letter">
+
+      <h1>For My Darling ❤️</h1>
+
+      <p>
+        My darling, if you're reading this after studying, I want you to stop
+        for a moment, take a deep breath, and let yourself rest. 🥺❤️
+      </p>
+
+      <p>
+        I know you probably had a long and tiring day, and maybe your mind
+        is still full of everything you had to study. But I hope you know
+        how proud I am of you. Even on the days when you're tired, stressed,
+        or feel like you're not doing enough, I still see how hard you're trying.
+      </p>
+
+      <p>
+        You don't have to be perfect for me. You don't have to accomplish
+        everything in one day. You can be tired. You can rest. You can have
+        bad days. And I'll still love you exactly the same.
+      </p>
+
+      <p>
+        If I could be there right now, I'd pull you into my arms, let you
+        rest your head on my chest, and tell you,
+        <i>"You did enough for today, darling. I'm proud of you."</i>
+        Then I'd stay beside you until all that stress slowly disappeared.
+      </p>
+
+      <p>
+        I hope this little message reminds you that somewhere far away,
+        there's someone thinking about you, worrying about you, missing you,
+        and loving you more than you probably realize.
+      </p>
+
+      <p>
+        So close your books for a while, darling. Drink some water, breathe
+        slowly, and give that beautiful mind of yours a break.
+      </p>
+
+      <p>
+        You worked hard today. Now let yourself rest.
+      </p>
+
+      <p>
+        And whenever the world feels too heavy, remember that you have me.
+        Distance may keep me from holding you right now, but it will never
+        stop my love from reaching you.
+      </p>
+
+      <p>
+        Sleep peacefully when you're ready, my darling. Tomorrow is another
+        day, and I'll still be here cheering for you.
+      </p>
+
+      <p>
+        I love you so much, my darling. More than these little words could
+        ever explain. ❤️
+      </p>
+
+      <div class="signature">
+        — Forever yours,<br>
+        Andrei ❤️
+      </div>
+
+      <button class="close-btn" onclick="closeLetter()">
+        Close ❤️
+      </button>
+
+    </div>
+
   </div>
+
+
+  <script>
+
+    const envelopeArea = document.getElementById("envelopeArea");
+    const envelope = document.getElementById("envelope");
+    const letter = document.getElementById("letter");
+
+    envelopeArea.addEventListener("click", function () {
+
+      if (!envelope.classList.contains("opened")) {
+
+        envelope.classList.add("opened");
+
+        setTimeout(() => {
+          envelopeArea.style.display = "none";
+          letter.style.display = "block";
+        }, 1200);
+
+      }
+
+    });
+
+
+    function closeLetter() {
+      letter.style.display = "none";
+      envelopeArea.style.display = "block";
+
+      setTimeout(() => {
+        envelope.classList.remove("opened");
+      }, 100);
+    }
+
+
+    // FLOATING HEARTS
+    function createHeart() {
+
+      const heart = document.createElement("div");
+
+      heart.className = "heart";
+      heart.innerHTML = Math.random() > 0.5 ? "❤️" : "♡";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration =
+        (4 + Math.random() * 4) + "s";
+
+      heart.style.fontSize =
+        (14 + Math.random() * 18) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    setInterval(createHeart, 700);
+
+  </script>
 
 </body>
 </html>
